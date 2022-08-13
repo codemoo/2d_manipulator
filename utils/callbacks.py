@@ -25,7 +25,7 @@ def getBestRewardCallback(args):
         global n_steps, best_mean_reward
         # Print stats every 1000 calls
         divider = 2
-        print(best_mean_reward)
+
         if (n_steps + 1) % divider == 0 and (n_steps + 1) / divider > 1:
             # if _locals['self'].env.get_attr('proc_id') == 0:
         # if True:
