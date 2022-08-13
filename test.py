@@ -71,8 +71,12 @@ if __name__ == '__main__':
     answers = prompt(questions)
 
     f = open(answers['target_model']+'/log.monitor.csv', 'r')
-    _args = json.loads(f.readline().replace('#',''))['args']
+    # _args = json.loads(f.readline().replace('#',''))['args']
+    _args = {}
     _args['play'] = True
+    _args['layer_size'] = 2
+    _args['network_size'] = 64
+    _args['alg'] = 'sac'
 
     model_files = sorted(glob(answers['target_model'].replace('.monitor.csv','')+'/*_model.pkl'))
     model_files.sort(key=lambda var:[int(x) if x.isdigit() else x for x in re.findall(r'[^0-9]|[0-9]+', var)])
